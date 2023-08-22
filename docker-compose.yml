@@ -5,6 +5,7 @@ services:
       context: ./client
       args:
         # - REACT_APP_SOCKET_URL=https://MMiirraa.github.io
+        - REACT_APP_SOCKET_URL=ocalhost:3000
     restart: always
     ports: 
       - 3000:3000

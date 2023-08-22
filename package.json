@@ -3,8 +3,11 @@
   "version": "1.0.0",
   "description": "локально развернуть можно",
   "main": "index.js",
+  "homepage": "mmiirraa.github.io",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "gh-pages -d ./",
+    "predeploy": "docker-compose --compatibility up --build --remove-orphans"
   },
   "keywords": [],
   "author": "",

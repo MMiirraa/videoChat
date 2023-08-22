@@ -1,0 +1,34 @@
+version: '3.7'
+services:
+  web-client:
+    build: 
+      context: ./client
+      args:
+        # - REACT_APP_SOCKET_URL=https://MMiirraa.github.io
+    restart: always
+    ports: 
+      - 3000:3000
+    depends_on:
+      - core
+
+  core:
+    build: ./server
+    environment:
+      - KURENTO_URL=ws://kurento:8888/kurento
+    restart: always
+    ports: 
+      - 8000:8000
+    depends_on:
+      - kurento
+    links:
+      - kurento
+
+  kurento:
+    image: kurento/kurento-media-server:6.16
+    environment:
+      - KMS_MIN_PORT=50800
+      - KMS_MAX_PORT=50900
+    ports:
+      - "50800-50900:50800-50900/udp"
+      - "50800-50900:50800-50900/tcp"
+

@@ -1,0 +1,8 @@
+.join {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(238, 207, 130);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
